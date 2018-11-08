@@ -1,0 +1,61 @@
+<idea-plugin>
+    <id>org.jspare.tools.avro4idea</id>
+    <name>Apache Avro™ Tools Integration</name>
+    <description>Apache Avro™ tools integration for Intellij</description>
+    <version>0.0.1</version>
+    <vendor email="pflima92@gmail.com" url="http://jspare.org">jspare Org.</vendor>
+
+    <depends optional="true">claims.bold.intellij.avro</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <project-components>
+        <component>
+            <implementation-class>org.jspare.tools.avro4idea.AvroEditorComponent</implementation-class>
+        </component>
+    </project-components>
+
+    <actions>
+        <group id="org.jspare.tools.avro4idea.AvroToolsActionGroup" text="Avro Tools" popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </group>
+        <action id="AvroEditor.AvroGenerateSourcesFromAvdl" class="org.jspare.tools.avro4idea.actions.AvroGenerateSourcesFromAvdl"
+                text="Generate Sources from Avdl">
+            <add-to-group group-id="org.jspare.tools.avroeditor.AvroToolsActionGroup" anchor="first"/>
+        </action>
+        <action id="AvroEditor.AvroGenerateSourcesFromAvsc" class="org.jspare.tools.avro4idea.actions.AvroGenerateSourcesFromAvsc"
+                text="Generate Sources from Avdl">
+            <add-to-group group-id="org.jspare.tools.avroeditor.AvroToolsActionGroup" anchor="first"/>
+        </action>
+        <action id="AvroEditor.AvroIdlToSchemata" class="org.jspare.tools.avro4idea.actions.AvroIdlToSchemata"
+                text="Avro idl2schemata">
+            <add-to-group group-id="org.jspare.tools.avroeditor.AvroToolsActionGroup" anchor="first"/>
+        </action>
+    </actions>
+
+    <description><![CDATA[
+    <div xmlns="http://www.w3.org/1999/html">
+        <p>
+            This tool provides a integration with Avro™ Tools 1.8.2 and IDEA.
+        </p>
+        <p>
+            Also, we recommend the usage of Apache Avro™ Support from <a href="https://github.com/AbigailBuccaneer/intellij-avro">AbigailBuccaneer/intellij-avro</a>.
+        </p>
+        <p>
+            This tool is free for personal and commercial usage.
+        </p>
+    </div>
+]]> </description>
+
+    <change-notes><![CDATA[
+    <h2>0.0.1</h2>
+    <ul>
+        <li>Added: Avro™ Tool idl2schemata support.</li>
+        <li>Added: Generate sources from Avsc and Avdl formats.</li>
+        <li>Added: Avsc and Avdl file templates.</li>
+    </ul>
+    ]]></change-notes>
+
+</idea-plugin>

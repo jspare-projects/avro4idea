@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.3.12'
+}
+
+group 'org.jspare.tools'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (group: 'org.apache.avro', name: 'avro-tools', version: '1.8.2'){
+        exclude group: "org.apache.velocity", module:"velocity"
+    }
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+intellij {
+    version '2018.2.5'
+}
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}

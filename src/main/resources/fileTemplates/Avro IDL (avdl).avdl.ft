@@ -1,0 +1,18 @@
+/**
+* A MessageBooker servivce to handle a ${RecordName}
+*/
+@version("1.0.0")
+@namespace("(${Namespace}")
+protocol ${RecordName}Service {
+
+  /**
+  * The ${RecordName} schema definition.
+  */
+  record $RecordName {
+
+    /**
+    * The ${RecordName} id.
+    */
+    string id = "";
+  }
+}

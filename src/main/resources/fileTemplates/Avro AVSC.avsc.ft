@@ -1,0 +1,17 @@
+{
+  "type": "record",
+  "name": "${RecordName}",
+  "namespace": "${Namespace}",
+  "doc": "A ${RecordName} entity.",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "The ${RecordName} id field.",
+      "default" : ""
+    }
+  ]
+}
