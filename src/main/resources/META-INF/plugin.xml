@@ -23,15 +23,15 @@
         </group>
         <action id="AvroEditor.AvroGenerateSourcesFromAvdl" class="org.jspare.tools.avro4idea.actions.AvroGenerateSourcesFromAvdl"
                 text="Generate Sources from Avdl">
-            <add-to-group group-id="org.jspare.tools.avroeditor.AvroToolsActionGroup" anchor="first"/>
+            <add-to-group group-id="org.jspare.tools.avro4idea.AvroToolsActionGroup" anchor="first"/>
         </action>
         <action id="AvroEditor.AvroGenerateSourcesFromAvsc" class="org.jspare.tools.avro4idea.actions.AvroGenerateSourcesFromAvsc"
                 text="Generate Sources from Avdl">
-            <add-to-group group-id="org.jspare.tools.avroeditor.AvroToolsActionGroup" anchor="first"/>
+            <add-to-group group-id="org.jspare.tools.avro4idea.AvroToolsActionGroup" anchor="first"/>
         </action>
         <action id="AvroEditor.AvroIdlToSchemata" class="org.jspare.tools.avro4idea.actions.AvroIdlToSchemata"
                 text="Avro idl2schemata">
-            <add-to-group group-id="org.jspare.tools.avroeditor.AvroToolsActionGroup" anchor="first"/>
+            <add-to-group group-id="org.jspare.tools.avro4idea.AvroToolsActionGroup" anchor="first"/>
         </action>
     </actions>
 
