@@ -1,11 +1,11 @@
 <idea-plugin>
     <id>org.jspare.tools.avro4idea</id>
-    <name>Apache Avro™ Tools Integration</name>
+    <name>avro4idea</name>
     <description>Apache Avro™ tools integration for Intellij</description>
     <version>0.0.1</version>
     <vendor email="pflima92@gmail.com" url="http://jspare.org">jspare org.</vendor>
 
-    <depends optional="true">claims.bold.intellij.avro</depends>
+    <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
@@ -30,18 +30,23 @@
             <add-to-group group-id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" anchor="last"/>
         </action>
         <action id="AvroEditor.IdlToolAnAction" class="org.jspare.tools.avro4idea.actions.tools.IdlToolAnAction"
-                text="Avro idl">
+                text="Avro idl (avpr)">
             <add-to-group group-id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" anchor="last"/>
         </action>
         <action id="AvroEditor.AvroIdlToSchemata" class="org.jspare.tools.avro4idea.actions.tools.IdlToSchemataAnAction"
-                text="Avro idl2schemata">
-            <add-to-group group-id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" anchor="last"/>
-        </action>
-        <action id="AvroEditor.AvroInduceSchemaAnAction" class="org.jspare.tools.avro4idea.actions.tools.AvroInduceSchemaAnAction"
-                text="Avro induce from Java">
+                text="Avro idl2schemata (avsc)">
             <add-to-group group-id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" anchor="last"/>
         </action>
     </actions>
+
+    <change-notes><![CDATA[
+    <h2>0.0.1</h2>
+    <ul>
+        <li>Added: Avro™ Tool idl2schemata support.</li>
+        <li>Added: Generate sources from Avsc and Avdl formats.</li>
+        <li>Added: Avsc and Avdl file templates.</li>
+    </ul>
+    ]]></change-notes>
 
     <description><![CDATA[
     <div xmlns="http://www.w3.org/1999/html">
@@ -57,13 +62,5 @@
     </div>
 ]]> </description>
 
-    <change-notes><![CDATA[
-    <h2>0.0.1</h2>
-    <ul>
-        <li>Added: Avro™ Tool idl2schemata support.</li>
-        <li>Added: Generate sources from Avsc and Avdl formats.</li>
-        <li>Added: Avsc and Avdl file templates.</li>
-    </ul>
-    ]]></change-notes>
 
 </idea-plugin>
