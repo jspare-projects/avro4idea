@@ -3,7 +3,7 @@
     <name>Apache Avro™ Tools Integration</name>
     <description>Apache Avro™ tools integration for Intellij</description>
     <version>0.0.1</version>
-    <vendor email="pflima92@gmail.com" url="http://jspare.org">jspare Org.</vendor>
+    <vendor email="pflima92@gmail.com" url="http://jspare.org">jspare org.</vendor>
 
     <depends optional="true">claims.bold.intellij.avro</depends>
 
@@ -18,20 +18,28 @@
     </project-components>
 
     <actions>
-        <group id="org.jspare.tools.avro4idea.AvroToolsActionGroup" text="Avro Tools" popup="true">
+        <group id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" text="Avro Tools" popup="true">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </group>
-        <action id="AvroEditor.AvroGenerateSourcesFromAvdl" class="org.jspare.tools.avro4idea.actions.AvroGenerateSourcesFromAvdl"
+        <action id="AvroEditor.AvroGenerateSourcesFromAvdl" class="org.jspare.tools.avro4idea.actions.generation.AvroGenerateSourcesFromAvdl"
                 text="Generate Sources from Avdl">
-            <add-to-group group-id="org.jspare.tools.avro4idea.AvroToolsActionGroup" anchor="first"/>
+            <add-to-group group-id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" anchor="last"/>
         </action>
-        <action id="AvroEditor.AvroGenerateSourcesFromAvsc" class="org.jspare.tools.avro4idea.actions.AvroGenerateSourcesFromAvsc"
-                text="Generate Sources from Avdl">
-            <add-to-group group-id="org.jspare.tools.avro4idea.AvroToolsActionGroup" anchor="first"/>
+        <action id="AvroEditor.AvroGenerateSourcesFromAvsc" class="org.jspare.tools.avro4idea.actions.generation.AvroGenerateSourcesFromAvsc"
+                text="Generate Sources from Avsc">
+            <add-to-group group-id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" anchor="last"/>
         </action>
-        <action id="AvroEditor.AvroIdlToSchemata" class="org.jspare.tools.avro4idea.actions.AvroIdlToSchemata"
+        <action id="AvroEditor.IdlToolAnAction" class="org.jspare.tools.avro4idea.actions.tools.IdlToolAnAction"
+                text="Avro idl">
+            <add-to-group group-id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" anchor="last"/>
+        </action>
+        <action id="AvroEditor.AvroIdlToSchemata" class="org.jspare.tools.avro4idea.actions.tools.IdlToSchemataAnAction"
                 text="Avro idl2schemata">
-            <add-to-group group-id="org.jspare.tools.avro4idea.AvroToolsActionGroup" anchor="first"/>
+            <add-to-group group-id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" anchor="last"/>
+        </action>
+        <action id="AvroEditor.AvroInduceSchemaAnAction" class="org.jspare.tools.avro4idea.actions.tools.AvroInduceSchemaAnAction"
+                text="Avro induce from Java">
+            <add-to-group group-id="org.jspare.tools.avro4idea.actions.AvroToolsActionGroup" anchor="last"/>
         </action>
     </actions>
 

@@ -1,13 +1,15 @@
-package org.jspare.tools.avro4idea.actions;
+package org.jspare.tools.avro4idea.actions.tools;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.apache.avro.tool.Tool;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class AbstractAvroToolsAnAction extends AnAction {
 
@@ -19,18 +21,24 @@ public abstract class AbstractAvroToolsAnAction extends AnAction {
         VirtualFile vFile = FileEditorManager.getInstance(event.getProject()).getSelectedEditor().getFile();
 
         String in = vFile.getCanonicalFile().getCanonicalPath();
-        String out = vFile.getCanonicalFile().getParent().getCanonicalPath();
+        List<String> arguments = arguments(event, vFile, in);
 
         try {
-            log.info("Performing " + command + " " + in + " > " + out);
-            getTool().run(System.in, System.out, System.err, Arrays.asList(in, out));
+            log.info("Performing " + arguments.stream().collect(Collectors.joining(" ")));
+            getTool().run(System.in, System.out, System.err, arguments);
         } catch (Exception e) {
-            log.error("Fail to " + command + " [" + vFile.getCanonicalPath() + "] to schemata");
+            log.error("Fail to " + command + " [" + arguments + "]");
             log.error(e.getMessage(), e);
+        } finally {
+
+            LocalFileSystem.getInstance().refreshAndFindFileByPath(vFile.getCanonicalFile().getParent().getCanonicalPath());
         }
     }
 
-    public abstract String getCommand();
+    protected abstract List<String> arguments(AnActionEvent event, VirtualFile vFile, String in);
 
-    public abstract Tool getTool();
+    protected abstract String getCommand();
+
+    protected abstract Tool getTool();
+
 }

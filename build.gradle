@@ -21,12 +21,10 @@ dependencies {
 intellij {
     version '2018.2.5'
     pluginName 'Apache Avro™ Tools Integration'
-    publish {
-        channel 'beta'
-    }
 }
 
 publishPlugin {
+    channels 'beta'
     username intellijPublishUsername
     password intellijPublishPassword
 }
